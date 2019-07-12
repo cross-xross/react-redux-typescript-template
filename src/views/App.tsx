@@ -2,16 +2,15 @@ import React from 'react';
 import './App.css';
 
 export interface AppProperty {
-  name?: string,
-  changeName?: () => void,
+  name?: string;
+  changeName?: () => void;
 }
 
 interface AppState {
-  count: number
+  count: number;
 }
 
 export default class App extends React.Component<AppProperty, AppState> {
-
   constructor(props: AppProperty) {
     super(props);
     this.state = {
@@ -19,21 +18,22 @@ export default class App extends React.Component<AppProperty, AppState> {
     };
   }
 
-  private onClickButton = () => {
-    this.setState({
-      ...this.state,
-      count: this.state.count + 1
-    })
-  }
-
-  render() {
+  public render() {
     return (
       <div className="App">
         <h3>{this.props.name}</h3>
         <span>{this.state.count}</span>
-        <button onClick={this.onClickButton}>PUSH</button><br/>
+        <button onClick={this.onClickButton}>PUSH</button>
+        <br />
         <button onClick={this.props.changeName}>change</button>
       </div>
     );
   }
+
+  private onClickButton = () => {
+    this.setState({
+      ...this.state,
+      count: this.state.count + 1,
+    });
+  };
 }
