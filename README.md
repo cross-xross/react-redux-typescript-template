@@ -4,9 +4,11 @@
 
 - React: 16.8.6
 - Redux: 4.0.1
+- Redux-Thunk: 2.3.0
 - TypeScript: 3.5.2
 - TsLint: 5.18.0
 - Prettier: 1.18.2
+- Enzyme: 3.10.0
 
 ## ディレクトリ構成
 
