@@ -1,5 +1,5 @@
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
-import { userInfomationActions } from '../actions/userInformationAction';
+import { changeUserName } from '../actions/userInformationAction';
 
 export interface UserInfoState {
   name: string;
@@ -10,7 +10,7 @@ const initialState: UserInfoState = {
 };
 
 export const userInfomationReducer = reducerWithInitialState(initialState).case(
-  userInfomationActions.changeUserName,
+  changeUserName,
   (state, name) => {
     return {
       ...state,

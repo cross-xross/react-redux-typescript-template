@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { userInfomationActions } from '../actions/userInformationAction';
+import { changeUserName, changeUserNameAsync } from '../actions/userInformationAction';
 import { AppState } from '../store/store';
 import App, { AppProperty } from '../views/App';
 
@@ -12,7 +12,10 @@ const mapStateToProps = (state: AppState, props: AppProperty) => {
 const mapDispatchToProps = (dispatch: any, props: AppProperty) => {
   return {
     changeName: () => {
-      dispatch(userInfomationActions.changeUserName());
+      dispatch(changeUserName());
+    },
+    changeUserNameAsync: () => {
+      dispatch(changeUserNameAsync('change'));
     },
   };
 };
