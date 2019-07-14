@@ -2,9 +2,8 @@ import React, { ErrorInfo } from 'react';
 import './App.css';
 
 export interface AppProperty {
-  name?: string;
-  changeName?: () => void;
-  changeUserNameAsync?: () => void;
+  message?: string;
+  fetchAdvice?: () => void;
 }
 
 interface AppState {
@@ -22,13 +21,13 @@ export default class App extends React.Component<AppProperty, AppState> {
   public render() {
     return (
       <div className="App">
-        <h3>{this.props.name}</h3>
-        <span>{this.state.count}</span>
-        <button onClick={this.onClickButton}>PUSH</button>
-        <br />
-        <button className="second" onClick={this.props.changeUserNameAsync}>
-          change
+        <h3>今日のアドバイス</h3>
+        <h3>「{this.props.message}」</h3>
+        <button className="adviceButton" onClick={this.props.fetchAdvice}>
+          アドバイスを請う
         </button>
+        <div>{this.state.count}</div>
+        <button onClick={this.onClickButton}>COUNT UP</button>
       </div>
     );
   }

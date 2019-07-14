@@ -11,9 +11,9 @@ describe('Appコンポーネント', () => {
     const wrapper = shallow(<App />);
   });
   it('ボタンクリック時にプロパティが呼ばれること', () => {
-    const mockChangeName = jest.fn();
-    const wrapper = shallow(<App name="sample" changeUserNameAsync={mockChangeName} />);
-    wrapper.find('button.second').simulate('click');
-    expect(mockChangeName).toBeCalled();
+    const mock = jest.fn();
+    const wrapper = shallow(<App fetchAdvice={mock} />);
+    wrapper.find('button.adviceButton').simulate('click');
+    expect(mock).toBeCalled();
   });
 });
